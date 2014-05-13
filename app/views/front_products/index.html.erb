@@ -1,0 +1,15 @@
+<h1>Lista produktow</h1>
+<table border="1px">
+    <% @products.each do |p| %>
+      <tr>
+        <th align="center" width="20"><%= p.id %></th>
+        <th align="center" width="20"><%= p.name %></th>
+        <th align="center" width="20"><%= p.image %></th>
+        <th align="center" width="20"><%= image_tag p.avatar.thumb.url if p.avatar.present? %></th>
+        <th align="center"><%= p.description %></th>
+        <th align="center"><%= link_to "Zobacz wiecej...", show_prod_path %></th>
+        <br>
+      </tr>
+    <% end %>
+</table>
+

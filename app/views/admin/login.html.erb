@@ -1,0 +1,16 @@
+<div>
+  Wprowadź login i hasło, aby się zalogować:<br /><br />
+  <%= form_for admin_url do |a| %>
+  
+    <%= a.label :email, "email:" %><br />
+    <%= a.text_field :email %><br />
+    
+    <%= a.label :password, "password:" %><br />
+    <%= a.password_field :password %><br />
+    <br />
+    
+    <%= a.label :submit, "zaloguj" %>
+    <%= a.submit %>
+
+  <% end %>
+</div>

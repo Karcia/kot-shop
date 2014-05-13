@@ -1,0 +1,2 @@
+module FrontProductsHelper
+end
