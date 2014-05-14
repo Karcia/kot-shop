@@ -17,13 +17,9 @@
   </div>
   <div class="field">
     <%= f.label :image %><br />
-    <%= f.text_field :image %><br>
-  </div>
-  <div class="field">
-    <%= f.label :avatar %><br>
-    <%= image_tag @product.avatar.thumb.url if @product.avatar.present? %>
-    <%= f.file_field :avatar %>
-    <%= f.hidden_field :avatar_cache %>
+    <%= image_tag @product.image.thumb.url if @product.image.present? %>
+    <%= f.file_field :image %><br>
+    <%= f.hidden_field :image_cache %>
   </div>
   <div class="field">
     <%= f.label :description %><br />

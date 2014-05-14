@@ -13,7 +13,7 @@ Shop::Application.routes.draw do
 
   match 'produkty'        => 'products#index'
 
-  match 'home/id'   => 'front_products#show', :as => :show_prod
+  match 'home/:id'   => 'front_products#show', :as => :front_product
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

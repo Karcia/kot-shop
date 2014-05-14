@@ -4,9 +4,7 @@
   <tr>
     <th width="50">Name</th>
     <th width="50">Image</th>
-    <th>Avatar</th>
     <th width="300px">Description</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -14,10 +12,8 @@
 <% @products.each do |product| %>
   <tr>
     <td align="center"><%= product.name %></td>
-    <td align="center"><%= product.image %></td>
-    <td><%= image_tag product.avatar.thumb.url if product.avatar.present? %></td>
+    <td><%= image_tag product.image.thumb.url if product.image.present? %></td>
     <td align="center"><%= product.description %></td>
-    <td width="50" align="center"><%= link_to 'Show', product %></td>
     <td width="50" align="center"><%= link_to 'Edit', edit_product_path(product) %></td>
     <td width="50" align="center"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
