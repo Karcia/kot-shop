@@ -1,6 +1,9 @@
 <div>
   Wprowadź login i hasło, aby się zalogować:<br /><br />
-  <%= form_tag admin_login_url do %>
+  <div><font color="red"><%= flash[:alert] %></font></div><br>
+  <div><%= flash[:notice] %></div>
+
+  <%= form_tag admin_enter_url do %>
   
   <%= label_tag "login:" %><br />
   <%= text_field_tag :login %><br />
@@ -9,5 +12,7 @@
   <%= password_field_tag :password %><br />
   <br />
   <%= submit_tag "Zaloguj" %>
+
+
   <% end %>
 </div>

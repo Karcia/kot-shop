@@ -3,12 +3,17 @@ Shop::Application.routes.draw do
   resources :front_products
   resources :admins
 
+  root :to => 'front_products#index'
+
   match 'admin'           => 'admin#index', :as => :admin
   match 'admin/login'     => 'admin#login', :as => :admin_login
+  match "admin/enter"     => "admin#enter", :as => :admin_enter
+  match "admin/logout"    => "admin#logout", :as => :admin_logout
+  
+
   match 'produkty'        => 'products#index'
 
-  match 'home'      => 'front_products#index'
-  match 'home/id'  => 'front_products#show', :as => :show_prod
+  match 'home/id'   => 'front_products#show', :as => :show_prod
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

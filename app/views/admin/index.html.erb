@@ -1,8 +1,13 @@
 <body>
 <h1>Witaj</h1>
 
-<%= link_to 'Produkty', products_path %>
-<%= link_to 'Home', front_products_path %>
+  <% if flash[:notice] %>
+    <div><%= flash[:notice] %></div>
+  <% end %>
+
+  <%= link_to 'Produkty', products_path %>
+  <%= link_to 'Home', front_products_path %>
+  <%= link_to 'Wyloguj', admin_logout_path %>
 
 
 

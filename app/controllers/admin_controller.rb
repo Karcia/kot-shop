@@ -5,7 +5,6 @@ class AdminController < ApplicationController
 
 
   def login
-    session[:admin] == false
   end
 
   def index
@@ -13,9 +12,12 @@ class AdminController < ApplicationController
 
   def enter
     if params[:login] == "karcia" && params[:password] == "kotek"
-      session[:admin] == true
+      #Rails.logger.info "Poprawne dane."
+      session[:admin] = true
+      flash[:notice] = "Poprawnie zalogowano."
       redirect_to admin_path
     else
+      #Rails.logger.info "Niepoprawne dane."
       flash[:alert] = "Niepoprawne dane."
       redirect_to admin_login_path
     end
@@ -23,12 +25,14 @@ class AdminController < ApplicationController
 
   def logout
     session[:admin] = false
+    flash[:notice] = "Wylogowano."
     redirect_to admin_login_path
   end
 
   protected
 
   def check_admin  
+    #Rails.logger.info "Admin: #{session[:admin]}"
     if session[:admin] != true
       redirect_to admin_login_path
     end
