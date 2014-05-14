@@ -1,19 +1,41 @@
 # -*- encoding: utf-8 -*-
 class AdminController < ApplicationController
 
-  def login
+
+before_filter :check_admin, :except => [:login, :enter]
+
+
+def login
+  session[:admin] = true
+  redirect_to admin_path
+end
+
+def index
+end
+
+def enter
+  if params[:login] == "karcia" && params[:password] == "kotek"
+    session[:admin] == true
+    session[:account_type] = "Admin"
+    redirect_to admin_path
+  else
+    flash[:alert] = "Niepoprawne dane."
+    redirect_to admin_login_path
   end
+end
 
-  def index
+def logout
+  session[:logout_requested] = true
+  session[:admin] = false
+  redirect_to admin_login_path
+end
+
+protected
+
+def check_admin  
+  if session[:admin] != true
+    redirect_to admin_login_path
   end
-
-
-#before_filtr :check_admin
-
-#def check_admin
-#  unless session[:admin].present?
-#    redirect_to admin_login_path  
-#  end
-#end
+end
 
 end

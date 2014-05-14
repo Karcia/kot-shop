@@ -4,11 +4,11 @@ Shop::Application.routes.draw do
   resources :admins
 
   match 'admin'           => 'admin#index', :as => :admin
-  match 'admin/login'     => 'admin#login', :as => :admin_login_path
+  match 'admin/login'     => 'admin#login', :as => :admin_login
   match 'produkty'        => 'products#index'
 
   match 'home'      => 'front_products#index'
-  match 'home/id'  => 'front_products#show', :as => :show_prod_path
+  match 'home/id'  => 'front_products#show', :as => :show_prod
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
