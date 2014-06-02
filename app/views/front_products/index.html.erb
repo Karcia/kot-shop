@@ -5,7 +5,7 @@
         <th align="center" width="20"><%= p.id %></th>
         <th align="center" width="20"><%= p.name %></th>
         <th align="center" width="20"><%= image_tag p.image.thumb.url if p.image.present? %></th>
-        <th align="center"><%= p.description %></th>
+        <th align="center"><%= truncate(p.description, length: 50) %></th>
         <th align="center"><%= link_to "Zobacz wiecej...", front_product_url(id: p.id) %></th>
         <br>
       </tr>

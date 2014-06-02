@@ -1,5 +1,7 @@
 <h1>Listing products</h1>
 
+<%= link_to "Strona główna", root_path %> || <br><br>
+
 <table border="2px">
   <tr>
     <th width="50">Name</th>
@@ -13,7 +15,7 @@
   <tr>
     <td align="center"><%= product.name %></td>
     <td><%= image_tag product.image.thumb.url if product.image.present? %></td>
-    <td align="center"><%= product.description %></td>
+    <td align="center"><%= truncate(product.description, length: 50) %></td>
     <td width="50" align="center"><%= link_to 'Edit', edit_product_path(product) %></td>
     <td width="50" align="center"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

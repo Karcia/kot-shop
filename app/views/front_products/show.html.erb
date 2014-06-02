@@ -1,3 +1,6 @@
-pojedynczy produkt
+<%= link_to "Strona główna", root_path %> || 
 
-<%= @product.name %>
+<h1 align="center"><%= @product.name %></h1>
+
+<p style="float:left; margin:10px; margin-left:100px"><%= image_tag @product.image.thumb_1.url if @product.image.present? %></p>
+<p style="margin-right:100px; margin-top:50px"><%= @product.description %></p>
