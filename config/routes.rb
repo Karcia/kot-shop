@@ -1,9 +1,10 @@
 Shop::Application.routes.draw do
+  devise_for :users
+
   resources :products
   resources :front_products
   resources :admins
 
-  root :to => 'front_products#index'
 
   match 'admin'           => 'admin#index', :as => :admin
   match 'admin/login'     => 'admin#login', :as => :admin_login
@@ -14,6 +15,9 @@ Shop::Application.routes.draw do
   match 'produkty'        => 'products#index'
 
   match 'home/:id'   => 'front_products#show', :as => :front_product
+
+  root :to => 'front_products#index'
+  #match 'uzytkownik'  => 'user#login', :as => :user_login
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
