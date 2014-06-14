@@ -1,0 +1,12 @@
+<h1> Witaj <%= @user.email %></h1>
+
+<% form_for(@user) do |u| %>
+
+  <%= u.label :name, "Imie" %>
+  <%= u.text_field :name %>
+
+  <%= u.label :image, "zdjecie" %>
+  <%= u.file_field :image %><br>
+  <%#= u.hidden_field :image_cache %>
+
+<% end %>
