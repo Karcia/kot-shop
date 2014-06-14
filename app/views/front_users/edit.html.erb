@@ -1,0 +1,15 @@
+<h1>Witaj, <%= current_user.email %></h1>
+
+
+<%= form_for @user, url: update_front_user_path(@user) do |f| %>
+  <div>
+    <%= f.label :image %><br />
+    <%= f.file_field :image %><br>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div>
+    <%= f.submit "wyslij" %>
+  </div>
+  <%= image_tag f.object.image.thumb.url if f.object.image.present? %>
+<% end %>
+

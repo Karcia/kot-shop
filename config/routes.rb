@@ -1,4 +1,5 @@
 Shop::Application.routes.draw do
+
   devise_for :users
 
   resources :products
@@ -15,6 +16,9 @@ Shop::Application.routes.draw do
   match 'produkty'        => 'products#index'
 
   match 'home/:id'   => 'front_products#show', :as => :front_product
+
+  match 'uzytkownik'                  => 'front_users#edit', :as => :front_user
+  match 'uzytkownik/:id/aktualizuj'   => 'front_users#update', :as => :update_front_user
 
   root :to => 'front_products#index'
   #match 'uzytkownik'  => 'user#login', :as => :user_login

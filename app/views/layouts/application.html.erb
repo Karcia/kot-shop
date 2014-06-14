@@ -14,14 +14,15 @@
     <p class="alert alert-danger"><%= alert %></p>
   <% end %>
 
-  <% if current_user.present? %>
-    <div align="right"><%= link_to "wyloguj", destroy_user_session_path, :method => :delete %></div>
-  <% else %>
-    <%= link_to "rejestracja", new_user_registration_path %>
-    <%= link_to "zaloguj", new_user_session_path %>
-  <% end %>
-
-
+  <div class="user-panel-container">
+    <% if current_user.present? %>
+      <%= link_to "wyloguj", destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "rejestracja", new_user_registration_path %>
+      <%= link_to "zaloguj", new_user_session_path %>
+    <% end %>
+    <%= link_to current_user.email, front_user_path %>
+  </div>
 
   <%= yield %>
 

@@ -18,7 +18,6 @@ class ProductsController < AdminController
 
   def create
     @product = Product.new(params[:product])
-
     if @product.save
       redirect_to products_path, notice: 'ok'
     else
@@ -29,11 +28,8 @@ class ProductsController < AdminController
 
   def update
     @product = Product.find(params[:id])
-
     if @product.update_attributes(params[:product])
-      if @product.save
-        redirect_to products_path, notice: 'Produkt zostal zaktualizowany.'
-      end
+      redirect_to products_path, notice: 'Produkt zostal zaktualizowany.'
     else
       render action: "edit"
     end
@@ -43,7 +39,6 @@ class ProductsController < AdminController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-
     redirect_to products_path
   end
 end
